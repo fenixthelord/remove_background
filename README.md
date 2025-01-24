@@ -1,31 +1,25 @@
-# remove_background
-Image Background Remove
+# Remove Background
 
-
-# Background Removal and Image Resizing Tool
-
-This Python script removes the background from images, resizes them to 1000x1000 pixels, and adds a white background. It processes all images in a specified folder and saves the results in an output folder.
+A Python tool to **remove backgrounds from images**, **resize them**, and **add customizable backgrounds**. Perfect for batch processing images with ease!
 
 ---
 
 ## Features
-- Removes the background from images using the `rembg` library.
-- Resizes images to 1000x1000 pixels while maintaining aspect ratio (you can change it).
-- Adds a white background to the processed images.
-- Processes all images in a folder automatically.
+
+- **Background Removal**: Remove backgrounds using the `rembg` library.
+- **Resizing**: Resize images to custom dimensions (width, height, or both).
+- **Custom Backgrounds**: Add a solid background color (e.g., white, red, or any RGB color).
+- **Image Compression**: Compress images while maintaining quality.
+- **Batch Processing**: Process all images in a folder automatically.
+- **Multiple Formats**: Supports `.jpg`, `.jpeg`, `.png`, `.webp`, and `.bmp`.
+- **Interactive Menu**: Customize settings via an easy-to-use interactive menu.
 
 ---
 
 ## Prerequisites
 
-Before running the script, ensure you have the following installed:
-
-1. **Python 3.8 or higher**:
-   - Download and install Python from [python.org](https://www.python.org/).
-   - During installation, make sure to check the box that says **"Add Python to PATH"**.
-
-2. **Required Python Packages**:
-   - Install the required packages using `pip`.
+- **Python 3.8 or higher**: Download and install from [python.org](https://www.python.org/).
+- **Required Libraries**: Install the required Python packages.
 
 ---
 
@@ -40,80 +34,94 @@ Before running the script, ensure you have the following installed:
 2. **Install Dependencies**:
    Run the following command to install the required Python packages:
    ```bash
-   pip install rembg pillow onnxruntime
+   pip install rembg pillow onnxruntime tqdm
    ```
 
 ---
 
 ## Usage
 
-1. **Prepare Your Images**:
-   - Create a folder named `images` in the project directory.
-   - Place all the images you want to process inside the `images` folder.
+### Interactive Options
 
-2. **Run the Script**:
-   - Open a terminal or command prompt in the project directory.
-   - Run the script:
-     ```bash
-     python remove_bg.py
-     ```
+When you run the script, it will ask you:
+1. **Input Folder**: Path to the folder containing images (default: `images`).
+2. **Output Folder**: Path to save processed images (default: `output_images`).
+3. **Custom Dimensions**: Set width, height, or both (leave blank to keep aspect ratio).
+4. **Compression**: Choose compression quality (1-100, default: 85).
+5. **Background Color**: Set a custom background color (e.g., `255 255 255` for white).
+6. **Output Format**: Choose between `.png`, `.jpg`, or `.webp` (default: `.png`).
 
-3. **Check the Output**:
-   - The processed images will be saved in a folder named `output_images`.
-   - Each processed image will have a filename like `processed_<original_name>.png`.
+### Example Run
+
+1. Place your images in the `images` folder (or specify a custom folder).
+2. Run the script:
+   ```bash
+   python remove_bg.py
+   ```
+3. Follow the prompts to customize the process.
 
 ---
 
 ## Folder Structure
 
 ```
-your-repo-name/
+remove_background/
 ├── images/                  # Folder containing input images
 ├── output_images/           # Folder containing processed images
-├── remove_bg.py        # Python script for processing images
-└── README.md                # This README file
+├── remove_bg.py             # Python script for processing images
+├── README.md                # This README file
+└── requirements.txt         # List of dependencies
 ```
 
 ---
 
 ## Customization
 
-- **Change Image Size**:
-  To resize images to a different size, modify the `new_size` variable in the script:
-  ```python
-  new_size = (width, height)  # Replace with your desired dimensions
-  ```
+### Change Default Settings
 
-- **Change Background Color**:
-  To change the background color, modify the `white_bg` variable in the script:
-  ```python
-  white_bg = Image.new("RGB", new_size, (R, G, B))  # Replace (R, G, B) with your desired color
-  ```
+You can modify the script to change default settings:
+- **Image Size**: Edit the `new_size` variable in the script.
+- **Background Color**: Edit the `background_color` variable.
+- **Compression Quality**: Edit the `quality` variable.
+
+### Command-Line Arguments
+
+You can also run the script with command-line arguments for automation:
+```bash
+python remove_bg.py --input path/to/input --output path/to/output --size 800 600 --bg-color 255 0 0 --quality 90 --format jpg
+```
 
 ---
 
 ## Troubleshooting
 
+### Common Issues
+
 1. **Error: `ModuleNotFoundError: No module named 'onnxruntime'`**:
-   - Ensure you have installed all required packages:
+   - Ensure all dependencies are installed:
      ```bash
-     pip install rembg pillow onnxruntime
+     pip install rembg pillow onnxruntime tqdm
      ```
 
 2. **Error: `FileNotFoundError: [WinError 3] The system cannot find the path specified`**:
-   - Ensure the `images` folder exists in the project directory and contains your images.
+   - Ensure the `images` folder exists and contains images.
+
+3. **Error: `Unsupported image format`**:
+   - Ensure the input images are in a supported format (`.jpg`, `.jpeg`, `.png`, `.webp`, `.bmp`).
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
+Contributions are welcome! If you find any issues or have suggestions for improvement, please:
+1. Open an issue on GitHub.
+2. Submit a pull request.
 
 ---
 
@@ -121,8 +129,10 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 - [rembg](https://github.com/danielgatis/rembg) for the background removal library.
 - [Pillow](https://pillow.readthedocs.io/) for image processing.
+- [tqdm](https://tqdm.github.io/) for the progress bar.
 
 ---
 
+## Author
 
----
+[Muhammad khalaf]  
